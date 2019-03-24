@@ -1,0 +1,26 @@
+{
+  "name": "reactroutertesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cluster": "pm2 restart pm2.config.js",
+    "cluster-prod": "pm2 restart pm2.config.js --env production",
+    "start": "NODE_ENV=production node app.js",
+    "start-dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "server": "NODE_ENV=development nodemon -i public --trace-warnings app.js",
+    "client": "npm run start --prefix client"
+  },
+  "author": "Connor Wiebe",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
+    "crypto-alphanumeric-id": "^1.0.1",
+    "express": "^4.16.4",
+    "helmet": "^3.16.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1"
+  }
+}
